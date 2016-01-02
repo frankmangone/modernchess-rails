@@ -4,11 +4,18 @@ module Api
 			class Api::V1::Modernchess::Rooms::ModernchessRoomsController < BaseApiController
 				respond_to :json
 
-				skip_before_filter :verify_authenticity_token
+				#skip_before_filter :verify_authenticity_token
 
 				def index
 					@rooms = Room.where(game_type: 'modernchess')
 					render json: @rooms, root: 'modernchess/rooms'
+				end
+
+				def show
+					# For the "find" requests performed for Ember Data
+					token = params[:token]
+					@room = Room.find_by_token token
+					render json: @room, root: "modernchess/room", status: :ok
 				end
 
 				def create
@@ -16,9 +23,20 @@ module Api
 					if @room.save
 						render json: @room, root: "modernchess/room", status: :ok
 					else
-						render :json, status: :unprocessable_entity
+						render json: @room, room: "modernchess/room", status: :unprocessable_entity
 					end
 				end
+
+				def destroy
+					token = params[:token]
+					@room = Room.find_by_token token
+					if @room.destroy
+						render json: @room, root: "modernchess/room", status: :ok
+					else
+						render json: @room, root: "modernchess/room", status: :unprocessable_entity
+					end
+				end
+
 
 				private
 

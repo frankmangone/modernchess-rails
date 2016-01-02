@@ -6,6 +6,8 @@ gem 'active_model_serializers'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders', '~> 2.0'
 
+gem 'bcrypt', '~> 3.1.9'
+
 gem 'websocket-rails'
 gem 'faye-websocket', '0.10.0'
 

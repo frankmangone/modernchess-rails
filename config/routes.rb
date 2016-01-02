@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+
+      namespace :users do
+          
+      end
+
       namespace :modernchess do
         namespace :rooms do
-          get   '/' => 'modernchess_rooms#index'
+          get    '/' => 'modernchess_rooms#index'
+          get    '/:token' => 'modernchess_rooms#show'
           match  '/', to: 'modernchess_rooms#create', via: [:post, :options]
+          match  '/:token', to: 'modernchess_rooms#destroy', via: [:delete, :options]
         end
       end
 
