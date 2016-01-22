@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
 
+      #devise_for :users, skip: :registration, controllers: { sessions: "users/sessions" }
+
       namespace :users do
-          
+        get '/'           => 'users#index'
+        get '/:url_token' => 'users#show'
+        match '/',           to: 'users#create', via: [:post, :options]
+        match '/:url_token', to: 'users#delete', via: [:delete, :options]
+
+        match '/log_in', to: 'sessions#create', via: [:post, :options]
       end
 
       namespace :modernchess do

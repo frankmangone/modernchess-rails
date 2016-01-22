@@ -47,6 +47,13 @@ GEM
     concurrent-ruby (1.0.0)
     daemons (1.2.3)
     debug_inspector (0.0.2)
+    devise (3.4.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     em-synchrony (1.0.4)
       eventmachine (>= 1.0.0.beta.1)
     erubis (2.7.0)
@@ -68,6 +75,7 @@ GEM
     minitest (5.8.3)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     rack (1.6.4)
     rack-cors (0.4.0)
@@ -124,6 +132,8 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    warden (1.2.3)
+      rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -149,6 +159,7 @@ DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.9)
   byebug
+  devise
   faye-websocket (= 0.10.0)
   pg
   rack-cors

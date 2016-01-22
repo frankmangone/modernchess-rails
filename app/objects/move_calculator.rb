@@ -133,6 +133,32 @@ class MoveCalculator
 
 		#
 
+		def loop_in_direction_with_limit(vertical, horizontal, limit)
+			row = @row + vertical
+			column = @column + horizontal
+			moves  = []
+			counter = 0
+
+			while (inside_board?(row, column) && tile_empty?(row, column) && counter < limit) do
+				moves << [row, column, "MOVE"]
+				row     += vertical
+				column  += horizontal
+				counter += 1
+			end
+
+			if counter != limit
+				if inside_board?(row, column)
+					if enemy_piece?(row, column)
+						moves << [row, column, "TAKE"]
+					end
+				end
+			end
+
+			moves
+		end
+
+		#
+
 		def calculate_single_move(row, column)
 			move = []
 
@@ -177,8 +203,7 @@ class MoveCalculator
 			#  Values in the method scope correspond to the piece to evaluate, not the
 			# *clicked* piece
 			index = index_in_board(r, c)
-			name  = @board[index]
-			type  = name[0..2]
+			type  = @board[index]
 
 			if @@class_1.include? @type
 				if @@class_2.include? type
@@ -192,6 +217,17 @@ class MoveCalculator
 				else
 					false
 				end
+			end
+		end
+
+		def piece_type?(r, c, type)
+			index = index_in_board(r, c)
+			tile_type  = @board[index]
+
+			if  tile_type == type
+				true
+			else
+				false
 			end
 		end
 

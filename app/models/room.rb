@@ -17,15 +17,14 @@ class Room < ActiveRecord::Base
 											"pwn","pwn","pwn","pwn","pwn","pwn","pwn","pwn",
 											"roo","kgt","bsp","kng","que","bsp","kgt","roo"]   # White
 
-	@@modernchess_board = [9, "o",  "o",  "mil","o"  ,"hst","o"  ,"mil","o"  ,"o",     # Communists
-									 					"peo","peo","peo","peo","peo","peo","peo","peo","peo",
-									 					"peo","peo","peo","peo","peo","peo","peo","peo","peo",
-									 					"o",  "o",  "o",  "o",  "o",  "o",  "o",  "o",  "o",
-									 					"o",  "o",  "o",  "o",  "o",  "o",  "o",  "o",  "o",
-														"o",  "o",  "o",  "o",  "o",  "o",  "o",  "o",  "o",
-									 					"wrk","wrk","wrk","wrk","wrk","wrk","wrk","wrk","wrk",
-									 					"hbg","mbg","mbg","tel","mln","tel","mbg","mbg","hbg",
-									 					"o"  ,"o"  ,"pol","o",  "eco","o"  ,"pol","o"  ,"o"]     # Capitalists
+	@@modernchess_board = [8, "bur","bur","bur","thk","hst","bur","bur","bur",     # Communists
+									 					"peo","peo","peo","peo","peo","peo","peo","peo",
+									 					"o",  "o",  "o",  "o",  "o",  "o",  "o",  "o"  ,
+									 					"o",  "o",  "o",  "o",  "o",  "o",  "o",  "o"  ,
+									 					"o",  "o",  "o",  "o",  "o",  "o",  "o",  "o"  ,
+														"o",  "o",  "o",  "o",  "o",  "o",  "o",  "o"  ,
+									 					"wrk","wrk","wrk","wrk","wrk","wrk","wrk","wrk",
+									 					"pol","tel","bgs","mln","eco","bgs","tel","pol"]     # Capitalists
 
 
 	## Turns for different game types

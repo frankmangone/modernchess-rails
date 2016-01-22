@@ -19,6 +19,8 @@ class MoveMaker
 			when "MOVE", "TAKE"
 				@board[target_index] = @board[source_index]
 				@board[source_index] = "o"
+			when "CONVERT"
+				@board[target_index] = "wrk"
 		end
 
 		@board

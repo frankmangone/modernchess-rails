@@ -7,6 +7,8 @@ require "#{Rails.root}/app/objects/move_maker.rb"
 
 class ModernchessRoomsController < WebsocketRails::BaseController
 
+	# Websockets controller, maybe change name to avoid confusions.
+
 	def load_room
 		token = message["id"]
 		room = Room.find_by_token token
@@ -30,9 +32,8 @@ class ModernchessRoomsController < WebsocketRails::BaseController
 
 		if room.save
 			response = message
-			# Maybe send new board state?
+			response["board"] = room.board
 			WebsocketRails[token].trigger 'move_done', response
-			# room.switch_turn
 		else
 			# Handle error but there shouldn't be any.
 		end

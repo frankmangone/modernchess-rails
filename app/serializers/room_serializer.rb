@@ -25,8 +25,5 @@ class RoomSerializer < ActiveModel::Serializer
   def id
     object.token
   end
-
-  #def type
-  # object.game_type + "/rooms"
-  #end
+  
 end
